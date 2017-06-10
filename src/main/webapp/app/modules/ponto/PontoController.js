@@ -5,18 +5,21 @@
     .module('hackathonACApp')
     .controller('PontoController', PontoController);
 
-  function PontoController(PontoService) {
+  function PontoController($q, $scope) {
     var vm = this;
     
     vm.apontar = apontar;
 
-    var geocoder;
-    geocoder = new google.maps.Geocoder();
+    var geocoder, deferred;
 
     function apontar(){
 
-      console.log("ponto");
       geocoder = new google.maps.Geocoder();
+
+      if (navigator.geolocation) {
+          deferred = $q.defer();
+          navigator.geolocation.getCurrentPosition(successFunction, errorFunction);
+      }
 
     }
 
@@ -34,7 +37,7 @@
               for (var b=0;b<results[0].address_components[i].types.length;b++) {
 
                 //there are different types that might hold a city admin_area_lvl_1 usually does in come cases looking for sublocality type will be more appropriate
-                if (results[0].address_components[i].types[b] == "administrative_area_level_1") {
+                if (results[0].address_components[i].types[b] == "locality") {
                   //this is the object you are looking for
                   var city= results[0].address_components[i];
                   break;
@@ -51,17 +54,20 @@
         } else {
           alert("Geocoder failed due to: " + status);
         }
+
+        vm.promise = deferred.resolve();
+        $scope.$apply();
       });
+
+      return deferred.promise;
     }
 
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(successFunction, errorFunction);
-    }
-//Get the latitude and the longitude;
+    //Get the latitude and the longitude;
     function successFunction(position) {
       var lat = position.coords.latitude;
       var lng = position.coords.longitude;
-      codeLatLng(lat, lng)
+      vm.promise = codeLatLng(lat, lng)
+      $scope.$apply();
     }
 
     function errorFunction(){

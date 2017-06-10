@@ -5,21 +5,22 @@
     .module('hackathonACApp')
     .controller('MainController', MainController);
 
-  function MainController(LoginService) {
+  function MainController(LoginService, ToastFactory, $state) {
     var vm = this;
-    
+
     vm.logar = logar;
-    
+
     function logar(){
 
-      LoginService.save(vm.usuario, function(data){
-        alert("ok");
+      vm.promise = LoginService.save(vm.usuario, function(data){
+        $state.go("apontar");
+        ToastFactory.showSuccessToast("Usuario logado com sucesso!");
       }, function(data){
-        alert("erro");
+        ToastFactory.showErrorToast("Usuario nao encontrado!");
       });
-      
-      
-      
+
+
+
     }
 
   }

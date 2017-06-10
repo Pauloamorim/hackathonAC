@@ -21,7 +21,13 @@
     }
 
     function LolizacaoService($resource) {
-        return $resource('https://geoip-db.com/json/', {}, {});
+        return $resource('https://geoip-db.com/json', {}, {
+            get: {
+                method: 'GET',
+                headers: {'Access-Control-Allow-Origin': '*'}
+            }
+
+        });
     }
 
 })();
