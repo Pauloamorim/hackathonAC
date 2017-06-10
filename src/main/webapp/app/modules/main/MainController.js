@@ -10,7 +10,7 @@
     
     vm.logar = logar;
     
-    vm.logar = function(){
+    function logar(){
 
       LoginService.save(vm.usuario, function(data){
         alert("ok");

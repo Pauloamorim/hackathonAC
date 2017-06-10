@@ -2,7 +2,7 @@
   'use strict';
   
   angular
-      .module('hotmartApp',
+      .module('hackathonACApp',
           [
         	'ngResource',
             'ui.router',
