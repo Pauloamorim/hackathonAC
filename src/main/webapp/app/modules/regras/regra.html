@@ -1,0 +1,55 @@
+
+<md-content flex layout-padding>
+ 		
+	 <section layout="column" layout-align="center center" layout-wrap>
+
+		 <progress-directive layout="row" layout-align="center center" promise="vm.promise"></progress-directive>
+	 
+		 <div layout="row" ng-hide="vm.promise && !vm.promise.$resolved">
+
+			 <div>
+
+				 <md-button class="md-raised md-primary" ui-sref="regraEdit" a>Adicionar</md-button>
+
+			 </div>
+
+
+			 <md-content>
+
+				 <p class="md-headline">Regras</p>
+
+				 <table class="bordered highlight responsive-table" >
+
+					 <thead>
+					 <tr>
+						 <th class="md-title">Id</th>
+						 <th class="md-title">Nome</th>
+					 </tr>
+					 </thead>
+
+					 <tbody>
+					 <tr ng-repeat="item in vm.regras" ng-show="vm.regras.length > 0">
+						 <td>
+							 <p class="md-subhead">{{ item.idRegra }}</p>
+						 </td>
+						 <td>
+							 <p class="md-subhead">{{ item.descricao }}</p>
+						 </td>
+					 </tr>
+					 <tr>
+						 <td colspan="6" ng-show="vm.regras.length === 0">
+							 <p class="md-subhead">Nenhuma regra adicionada</p>
+						 </td>
+					 </tr>
+					 </tbody>
+
+				 </table>
+
+			 </md-content>
+
+
+		 </div>
+      
+    </section>
+    
+</md-content>

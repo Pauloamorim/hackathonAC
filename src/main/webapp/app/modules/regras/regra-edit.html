@@ -1,0 +1,71 @@
+
+<md-content flex layout-padding>
+ 		
+	 <section layout="column" layout-align="center center" layout-wrap>
+
+		 <progress-directive layout="row" layout-align="center center" promise="vm.promise"></progress-directive>
+	 
+		 <div layout="row" ng-hide="vm.promise && !vm.promise.$resolved">
+
+			 <md-content layout-margin>
+
+				 <p class="md-headline">Regra</p>
+
+				 <form name="form">
+
+					 <md-input-container class="md-block">
+						 <label>Login</label>
+						 <input required name="descricao" id="descricao" ng-model="vm.regra.descricao">
+						 <div ng-messages="form.descricao.$error">
+							 <div ng-message="required">Campo requerido.</div>
+						 </div>
+					 </md-input-container>
+
+					 <md-input-container class="md-block">
+						 <label>Senha</label>
+						 <input required name="porcentagem" id="porcentagem" ng-model="vm.usuario.porcentagem">
+						 <div ng-messages="form.porcentagem.$error">
+							 <div ng-message="required">Campo requerido.</div>
+						 </div>
+					 </md-input-container>
+
+					 <md-input-container class="md-block">
+						 <label>Localidade</label>
+						 <md-select placeholder="Localidade" name="localidade"
+									ng-model="vm.regra.localidade" style="min-width: 200px;"required>
+
+							 <md-option ng-value="localidade" ng-repeat="localidade in vm.localidades"
+										ng-selected="localidade.id  == vm.regra.localidade.id">{{localidade.nome}}
+							 </md-option>
+						 </md-select>
+						 <div class="errors" ng-messages="form.localidade.$error">
+							 <div ng-message="required">Campo Obrigatório!</div>
+						 </div>
+					 </md-input-container>
+					 <br/>
+
+					 <md-input-container class="md-block">
+						 <label>Dia da Semana</label>
+						 <md-select placeholder="Dia da Semana" name="diaSemana"
+									ng-model="vm.regra.diaSemana" style="min-width: 200px;"required>
+
+							 <md-option ng-value="diaSemana" ng-repeat="diaSemana in vm.diasSemanas"
+										ng-selected="diaSemana.value  == vm.regra.diaSemana">{{localidade.nome}}
+							 </md-option>
+						 </md-select>
+						 <div class="errors" ng-messages="form.diaSemana.$error">
+							 <div ng-message="required">Campo Obrigatório!</div>
+						 </div>
+					 </md-input-container>
+					 <br/>
+
+				 </form>
+
+				 <md-button class="md-raised md-primary" ng-disabled="form.$invalid" ng-click="vm.salvar()">Logar</md-button>
+			 </md-content>
+
+		 </div>
+      
+    </section>
+    
+</md-content>

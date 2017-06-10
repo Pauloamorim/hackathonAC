@@ -12,12 +12,15 @@
 
     var geocoder, deferred;
 
+    vm.ponto = {};
+
     function apontar(){
 
       geocoder = new google.maps.Geocoder();
 
       if (navigator.geolocation) {
           deferred = $q.defer();
+          vm.promise = deferred.promise;
           navigator.geolocation.getCurrentPosition(successFunction, errorFunction);
       }
 
@@ -28,10 +31,10 @@
       var latlng = new google.maps.LatLng(lat, lng);
       geocoder.geocode({'latLng': latlng}, function(results, status) {
         if (status == google.maps.GeocoderStatus.OK) {
-          console.log(results)
+          console.log(results);
           if (results[1]) {
             //formatted address
-            alert(results[0].formatted_address);
+            //alert(results[0].formatted_address);
             //find country name
             for (var i=0; i<results[0].address_components.length; i++) {
               for (var b=0;b<results[0].address_components[i].types.length;b++) {
@@ -45,8 +48,9 @@
               }
             }
             //city data
-            alert(city.short_name + " " + city.long_name)
+            //alert(city.short_name + " " + city.long_name)
 
+            vm.ponto.city = city.short_name;
 
           } else {
             alert("No results found");
@@ -67,15 +71,10 @@
       var lat = position.coords.latitude;
       var lng = position.coords.longitude;
       vm.promise = codeLatLng(lat, lng)
-      $scope.$apply();
     }
 
     function errorFunction(){
       alert("Geocoder failed");
-    }
-
-    function initialize() {
-
     }
 
   }
