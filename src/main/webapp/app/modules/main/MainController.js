@@ -5,7 +5,7 @@
     .module('hackathonACApp')
     .controller('MainController', MainController);
 
-  function MainController(LoginService, ToastFactory, $state, $timeout, $mdSidenav) {
+  function MainController(LoginService, ToastFactory, $state, $timeout, $mdSidenav, $cookieStore) {
     var vm = this;
 
     vm.logar = logar;
@@ -13,6 +13,7 @@
     function logar(){
 
       vm.promise = LoginService.save(vm.usuario, function(data){
+        $cookieStore.put('usuario', data);
         $state.go("apontar");
         ToastFactory.showSuccessToast("Usuario logado com sucesso!");
       }, function(data){

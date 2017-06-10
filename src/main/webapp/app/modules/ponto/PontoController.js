@@ -5,30 +5,66 @@
     .module('hackathonACApp')
     .controller('PontoController', PontoController);
 
-  function PontoController($q, $scope, PontoService, ToastFactory) {
+  function PontoController($q, $scope, PontoService, ToastFactory, $cookieStore) {
     var vm = this;
+    vm.location = {};
+    vm.myLocation;
+    var locations = [];
+    var mapCanvas = document.getElementById('map');
+    vm.lat = "";
+    vm.long = "";
     
     vm.apontar = apontar;
 
     var geocoder, deferred;
 
+    geocoder = new google.maps.Geocoder();
+
+    if (navigator.geolocation) {
+      deferred = $q.defer();
+      //vm.promise = deferred.promise;
+      navigator.geolocation.getCurrentPosition(successFunction, errorFunction);
+    }
+
     vm.ponto = {};
 
     function apontar(){
 
-      geocoder = new google.maps.Geocoder();
+      vm.promise = codeLatLng(vm.lat, vm.long);
 
-      if (navigator.geolocation) {
-          deferred = $q.defer();
-          vm.promise = deferred.promise;
-          navigator.geolocation.getCurrentPosition(successFunction, errorFunction);
+    }
+
+    function addToMap(map){
+      var markers = [];
+
+      for (var i = 0; i < locations.length; i++) {
+        var marker = new google.maps.Marker({
+          position: locations[i],
+          map: map,
+          title: "LOCALIZACAO"
+        });
+        markers.push(marker);
+      }
+    }
+
+
+    function setLocation(lat, longi) {
+      var myLatlng = new google.maps.LatLng(lat, longi);
+
+      var mapOptions = {
+        center: myLatlng,
+        zoom: 13
       }
 
+      locations.push(myLatlng);
+
+      var map = new google.maps.Map(mapCanvas, mapOptions);
+
+      addToMap(map);
 
     }
 
     function codeLatLng(lat, lng) {
-
       var latlng = new google.maps.LatLng(lat, lng);
       geocoder.geocode({'latLng': latlng}, function(results, status) {
         if (status == google.maps.GeocoderStatus.OK) {
@@ -72,7 +108,10 @@
     function successFunction(position) {
       var lat = position.coords.latitude;
       var lng = position.coords.longitude;
-      vm.promise = codeLatLng(lat, lng)
+      setLocation(lat, lng);
+      vm.lat = lat;
+      vm.long = lng;
+      //vm.promise = codeLatLng(lat, lng)
     }
 
     function errorFunction(){
@@ -81,7 +120,7 @@
 
     function salvar(){
       vm.ponto.data = moment(new Date()).format("DD-MM-YYYY HH:mm");
-      vm.ponto.usuario = {id: 1};
+      vm.ponto.usuario = $cookieStore.get("usuario");
 
       vm.promise = PontoService.save(vm.ponto, function(){
         ToastFactory.showSuccessToast("Ponto registrado com sucesso!");

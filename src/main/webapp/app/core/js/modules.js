@@ -6,7 +6,8 @@
           [
         	'ngResource',
             'ui.router',
-            'ngMaterial'
+            'ngMaterial',
+            'ngCookies'
           ]
       );
 })();
