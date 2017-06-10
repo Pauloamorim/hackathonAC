@@ -4,13 +4,7 @@
         <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
-<<<<<<< HEAD
         <property name="context-root" value="hackatonAC"/>
         <property name="java-output-path" value="/hackathonAC/target/classes"/>
-=======
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/java"/>
-        <property name="context-root" value="hackatonAC"/>
-        <property name="java-output-path" value="/hackatonAC/target/classes"/>
->>>>>>> e5dafdd99bcdc7e5bd68a04cf9ba4ee9a8b80afe
     </wb-module>
 </project-modules>

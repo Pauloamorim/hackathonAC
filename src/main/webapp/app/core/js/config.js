@@ -2,14 +2,14 @@
   'use strict';
 
   angular
-    .module('hotmartApp')
+    .module('hackathonACApp')
     .config(themeConfiguration)
     ;
 
   function themeConfiguration($mdThemingProvider) {
 
     $mdThemingProvider.theme('default')
-      .primaryPalette('black', {
+      .primaryPalette('blue', {
         'default': '500'
       }).accentPalette('indigo', {
       'default': '900'

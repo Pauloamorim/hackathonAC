@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('hotmartApp')
+    .module('hackathonACApp')
     .config(['$stateProvider', '$urlRouterProvider', routerConfig]);
 
   function routerConfig($stateProvider, $urlRouterProvider) {
