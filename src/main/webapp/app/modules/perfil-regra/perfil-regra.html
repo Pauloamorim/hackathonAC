@@ -1,0 +1,34 @@
+<progress-directive layout="row" layout-align="center center" promise="vm.promise"></progress-directive>
+
+<md-content ng-hide="vm.promise && !vm.promise.$resolved">
+
+	<md-input-container class="md-block">
+		<label>Perfis</label>
+		<md-select placeholder="Perfis" name="perfis"
+				   ng-model="vm.vinculo.perfil" style="min-width: 200px;"required>
+
+			<md-option ng-value="perfil" ng-repeat="perfil in vm.perfis">{{perfil.nome}}
+			</md-option>
+		</md-select>
+		<div class="errors" ng-messages="form.localidade.$error">
+			<div ng-message="required">Campo Obrigatório!</div>
+		</div>
+	</md-input-container>
+	<br/>
+
+	<md-list ng-cloak>
+
+		<md-subheader class="md-no-sticky">Regras</md-subheader>
+		<md-list-item ng-repeat="item in vm.regras">
+			<p> {{ item.descricao }} / {{ item.localidade.nome }} </p>
+			<input type="checkbox" id="{{item.id}}" checked="checked" ng-model="item.selected"/>
+			<label for="{{item.id}}"></label>
+		</md-list-item>
+
+	</md-list>
+
+	<md-button class="md-raised md-primary" ng-disabled="!vm.vinculo.perfil" ng-click="vm.salvar()">Vincular</md-button>
+
+</md-content>
+
+</div>

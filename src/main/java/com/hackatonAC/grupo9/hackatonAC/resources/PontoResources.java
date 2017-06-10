@@ -10,10 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.hackatonAC.grupo9.hackatonAC.model.Localidade;
 import com.hackatonAC.grupo9.hackatonAC.model.Ponto;
-import com.hackatonAC.grupo9.hackatonAC.model.Usuario;
 import com.hackatonAC.grupo9.hackatonAC.service.LocalidadeService;
 import com.hackatonAC.grupo9.hackatonAC.service.PontoService;
-import com.hackatonAC.grupo9.hackatonAC.service.UsuarioService;
 
 @RestController
 @RequestMapping("/ponto")

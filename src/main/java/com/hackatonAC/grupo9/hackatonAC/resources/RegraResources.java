@@ -1,5 +1,7 @@
 package com.hackatonAC.grupo9.hackatonAC.resources;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,6 +29,11 @@ public class RegraResources {
 		} catch (final Exception e) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
 		}
+	}
+	
+	@RequestMapping(method = RequestMethod.GET)
+	public ResponseEntity<List<Regra>> listar() {
+		return ResponseEntity.status(HttpStatus.OK).body(regraService.listar());
 
 	}
 

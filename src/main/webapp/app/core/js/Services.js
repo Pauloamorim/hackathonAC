@@ -8,9 +8,13 @@
 
         .service('PontoService', PontoService)
 
-        .service('BuscarRegrasService', BuscarRegrasService)
-
         .service('RegraService', RegraService)
+
+        .service('LocalidadeService', LocalidadeService)
+
+        .service('PerfilRegraService', PerfilRegraService)
+
+        .service('PerfilService', PerfilService)
 
     ;
 
@@ -22,12 +26,20 @@
         return $resource(BASE_REST_URL + 'ponto/registrar', {}, {});
     }
 
-    function BuscarRegrasService($resource, BASE_REST_URL) {
-        return $resource(BASE_REST_URL + 'regras', {}, {});
+    function RegraService($resource, BASE_REST_URL) {
+        return $resource(BASE_REST_URL + 'regra', {}, {});
     }
 
-    function RegraService($resource, BASE_REST_URL) {
-        return $resource(BASE_REST_URL + 'regras', {}, {});
+    function LocalidadeService($resource, BASE_REST_URL) {
+        return $resource(BASE_REST_URL + 'localidade', {}, {});
+    }
+
+    function PerfilRegraService($resource, BASE_REST_URL) {
+        return $resource(BASE_REST_URL + 'vinculo', {}, {});
+    }
+
+    function PerfilService($resource, BASE_REST_URL) {
+        return $resource(BASE_REST_URL + 'perfil', {}, {});
     }
 
 

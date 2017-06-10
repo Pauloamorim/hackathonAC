@@ -5,9 +5,14 @@
     .module('hackathonACApp')
     .controller('RegraController', RegraController);
 
-  function RegraController(LoginService, ToastFactory, $state) {
+  function RegraController(RegraService, ToastFactory) {
     var vm = this;
 
+    vm.promise = RegraService.query({}, function(data){
+      vm.regras = data;
+    }, function(){
+      ToastFactory.showErrorToast("ERRO INESPERADO!");
+    })
 
   }
 

@@ -1,0 +1,29 @@
+<div ng-controller="MainController as vm">
+
+  <md-sidenav
+    md-component-id="left"
+    md-is-locked-open="false"
+    md-disable-backdrop
+    md-whiteframe="24">
+
+    <md-toolbar>
+      <h1 class="md-toolbar-tools">Menu</h1>
+    </md-toolbar>
+
+    <md-content layout-padding>
+
+      <md-list ng-cloak>
+
+        <md-subheader class="md-no-sticky">Hackathon</md-subheader>
+        <md-list-item ui-sref="{{item.url}}" ng-repeat="item in vm.menu.items" ng-click="vm.toggleLeft()">
+          <md-icon class="material-icons md-48" alt="{{ item.name }}">{{item.icon}}</md-icon>
+          <p> {{ item.name }} </p>
+          <md-divider ng-if="!$last"></md-divider>
+        </md-list-item>
+
+      </md-list>
+    </md-content>
+  </md-sidenav>
+</div>
+
+

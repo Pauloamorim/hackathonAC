@@ -1,5 +1,7 @@
 package com.hackatonAC.grupo9.hackatonAC.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +16,10 @@ public class RegraService {
 
 	public void salvar(Regra regra){
 		regraRepository.save(regra);
+	}
+	
+	public List<Regra> listar(){
+		return regraRepository.findAll();
 	}
 
 }

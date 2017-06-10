@@ -31,6 +31,12 @@
         controller: 'RegraEditController',
         controllerAs: 'vm'
     })
+    .state('vinculo', {
+        url: '/vinculo',
+        templateUrl: 'app/modules/perfil-regra/perfil-regra.html',
+        controller: 'PerfilRegraController',
+        controllerAs: 'vm'
+    })
     
     ;
 
