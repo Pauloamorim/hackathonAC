@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
+<<<<<<< HEAD
 	<name>hackathonAC</name>
+=======
+	<name>hackatonAC</name>
+>>>>>>> e5dafdd99bcdc7e5bd68a04cf9ba4ee9a8b80afe
 	<comment></comment>
 	<projects>
 	</projects>
@@ -21,6 +25,7 @@
 			</arguments>
 		</buildCommand>
 		<buildCommand>
+<<<<<<< HEAD
 			<name>org.jboss.tools.jst.web.kb.kbbuilder</name>
 			<arguments>
 			</arguments>
@@ -31,15 +36,20 @@
 			</arguments>
 		</buildCommand>
 		<buildCommand>
+=======
+>>>>>>> e5dafdd99bcdc7e5bd68a04cf9ba4ee9a8b80afe
 			<name>org.eclipse.wst.validation.validationbuilder</name>
 			<arguments>
 			</arguments>
 		</buildCommand>
+<<<<<<< HEAD
 		<buildCommand>
 			<name>org.hibernate.eclipse.console.hibernateBuilder</name>
 			<arguments>
 			</arguments>
 		</buildCommand>
+=======
+>>>>>>> e5dafdd99bcdc7e5bd68a04cf9ba4ee9a8b80afe
 	</buildSpec>
 	<natures>
 		<nature>org.eclipse.jem.workbench.JavaEMFNature</nature>
@@ -47,9 +57,12 @@
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>org.eclipse.m2e.core.maven2Nature</nature>
 		<nature>org.eclipse.wst.common.project.facet.core.nature</nature>
+<<<<<<< HEAD
 		<nature>org.jboss.tools.jst.web.kb.kbnature</nature>
 		<nature>org.jboss.tools.cdi.core.cdinature</nature>
 		<nature>org.hibernate.eclipse.console.hibernateNature</nature>
+=======
+>>>>>>> e5dafdd99bcdc7e5bd68a04cf9ba4ee9a8b80afe
 		<nature>org.eclipse.wst.jsdt.core.jsNature</nature>
 	</natures>
 </projectDescription>
