@@ -13,6 +13,12 @@
         controller: 'MainController',
         controllerAs: 'vm'
       })
+        .state('apontar', {
+          url: '/apontar',
+          templateUrl: 'app/modules/ponto/apontar.html',
+          controller: 'PontoController',
+          controllerAs: 'vm'
+        })
     
     ;
 

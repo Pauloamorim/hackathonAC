@@ -2,8 +2,10 @@
 <md-content flex layout-padding>
  		
 	 <section layout="column" layout-align="center center" layout-wrap>
+
+		 <progress-directive layout="row" layout-align="center center" promise="vm.promise"></progress-directive>
 	 
-		 <div layout="row">
+		 <div layout="row" ng-hide="vm.promise && !vm.promise.$resolved">
 
 			 <md-content layout-margin>
 
@@ -13,7 +15,7 @@
 
 					 <md-input-container class="md-block">
 						 <label>Login</label>
-						 <input required name="login" id="login" ng-model="vm.login">
+						 <input required name="login" id="login" ng-model="vm.usuario.login">
 						 <div ng-messages="form.login.$error">
 							 <div ng-message="required">This is required.</div>
 						 </div>
@@ -21,7 +23,7 @@
 
 					 <md-input-container class="md-block">
 						 <label>Senha</label>
-						 <input required name="senha" id="senha" ng-model="vm.senha">
+						 <input required name="senha" id="senha" ng-model="vm.usuario.senha" type="password">
 						 <div ng-messages="form.senha.$error">
 							 <div ng-message="required">This is required.</div>
 						 </div>

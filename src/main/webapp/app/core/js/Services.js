@@ -1,16 +1,33 @@
 (function () {
-  'use strict';
+    'use strict';
 
-  angular
-    .module('hackathonACApp')
+    angular
+        .module('hackathonACApp')
 
-    .service('LoginService', LoginService)
-    
-  ;
+        .service('LoginService', LoginService)
 
-  function LoginService($resource, BASE_REST_URL) {
-    return $resource(BASE_REST_URL + '/usuario/login', {}, {
-    });
-  }
-  
+        .service('PontoService', PontoService)
+
+        .service('LolizacaoService', LolizacaoService)
+
+    ;
+
+    function LoginService($resource, BASE_REST_URL) {
+        return $resource(BASE_REST_URL + '/usuario/login', {}, {});
+    }
+
+    function PontoService($resource, BASE_REST_URL) {
+        return $resource(BASE_REST_URL + '/usuario/apontar', {}, {});
+    }
+
+    function LolizacaoService($resource) {
+        return $resource('https://geoip-db.com/json', {}, {
+            get: {
+                method: 'GET',
+                headers: {'Access-Control-Allow-Origin': '*'}
+            }
+
+        });
+    }
+
 })();
