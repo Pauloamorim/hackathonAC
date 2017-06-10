@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.hackatonAC.grupo9.hackatonAC.model.Localidade;
 import com.hackatonAC.grupo9.hackatonAC.model.Usuario;
 import com.hackatonAC.grupo9.hackatonAC.service.UsuarioService;
 
