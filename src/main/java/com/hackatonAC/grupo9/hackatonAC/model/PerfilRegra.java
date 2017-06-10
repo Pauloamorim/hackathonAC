@@ -1,5 +1,7 @@
 package com.hackatonAC.grupo9.hackatonAC.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name="perfil_regra")
@@ -25,6 +28,18 @@ public class PerfilRegra {
 	@ManyToOne
 	@JoinColumn(name="regra_idregra")
 	private Regra regra;
+
+	@Transient
+	private List<Regra> listaRegras;
+
+
+	public List<Regra> getListaRegras() {
+		return listaRegras;
+	}
+
+	public void setListaRegras(List<Regra> listaRegras) {
+		this.listaRegras = listaRegras;
+	}
 
 	public Long getId() {
 		return id;
