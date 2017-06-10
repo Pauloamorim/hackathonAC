@@ -27,7 +27,8 @@
       items: [
         {name: "Apontamento", url: 'apontar', icon: 'event_note'},
         {name: "Regras", url: 'regra', icon: 'event_note'},
-        {name: "Vinculo", url: 'vinculo', icon: 'event_note'}
+        {name: "Vinculo", url: 'vinculo', icon: 'event_note'},
+        {name: "Relatorio", url: 'relatorio', icon: 'event_note'}
       ]
     };
 

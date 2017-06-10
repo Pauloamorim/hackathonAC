@@ -6,6 +6,8 @@
 
         .service('LoginService', LoginService)
 
+        .service('UsuarioService', UsuarioService)
+
         .service('PontoService', PontoService)
 
         .service('RegraService', RegraService)
@@ -16,10 +18,16 @@
 
         .service('PerfilService', PerfilService)
 
+        .service('RelatorioService', RelatorioService)
+
     ;
 
     function LoginService($resource, BASE_REST_URL) {
         return $resource(BASE_REST_URL + 'usuario/login', {}, {});
+    }
+
+    function UsuarioService($resource, BASE_REST_URL) {
+        return $resource(BASE_REST_URL + 'usuario', {}, {});
     }
 
     function PontoService($resource, BASE_REST_URL) {
@@ -40,6 +48,10 @@
 
     function PerfilService($resource, BASE_REST_URL) {
         return $resource(BASE_REST_URL + 'perfil', {}, {});
+    }
+
+    function RelatorioService($resource, BASE_REST_URL) {
+        return $resource(BASE_REST_URL + 'relatorio', {}, {});
     }
 
 

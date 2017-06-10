@@ -1,0 +1,73 @@
+
+<progress-directive layout="row" layout-align="center center" promise="vm.promise"></progress-directive>
+
+<md-input-container>
+	<label>Usuario</label>
+	<md-select placeholder="Usuario" name="usuario"
+			   ng-model="vm.relatorio.usuario" style="min-width: 200px;">
+
+		<md-option ng-value="usuario" ng-repeat="usuario in vm.usuarios">{{usuario.nome}}
+		</md-option>
+	</md-select>
+</md-input-container>
+
+<md-input-container>
+	<label>Mes</label>
+	<md-select placeholder="Mes" name="mes"
+			   ng-model="vm.relatorio.mes" style="min-width: 200px;">
+
+		<md-option ng-value="mes.value" ng-repeat="mes in vm.meses">{{mes.description}}
+		</md-option>
+	</md-select>
+</md-input-container>
+
+<md-content ng-hide="vm.promise && !vm.promise.$resolved">
+
+	<p class="md-headline">Relatorio</p>
+
+	<table class="bordered highlight responsive-table" >
+
+		<thead>
+			<tr>
+				<th class="md-title">Dia</th>
+				<th class="md-title">Ponto 1</th>
+				<th class="md-title">Ponto 2</th>
+				<th class="md-title">Ponto 3</th>
+				<th class="md-title">Ponto 4</th>
+				<th class="md-title">Ponto 5</th>
+			</tr>
+		</thead>
+
+		<tbody>
+		<tr ng-repeat="item in vm.relatorio" ng-show="vm.relatorio.length > 0">
+			<td>
+				<p class="md-subhead">{{ item.dia }}</p>
+			</td>
+			<td>
+				<p class="md-subhead">{{ item.ponto1 }}</p>
+			</td>
+			<td>
+				<p class="md-subhead">{{ item.ponto2 }}</p>
+			</td>
+			<td>
+				<p class="md-subhead">{{ item.ponto3 }}</p>
+			</td>
+			<td>
+				<p class="md-subhead">{{ item.ponto4 }}</p>
+			</td>
+			<td>
+				<p class="md-subhead">{{ item.valor }}</p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" ng-show="vm.regras.length === 0">
+				<p class="md-subhead">Nenhuma relatorio gerado</p>
+			</td>
+		</tr>
+		</tbody>
+
+	</table>
+
+</md-content>
+
+</div>

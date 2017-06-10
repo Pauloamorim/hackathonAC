@@ -37,7 +37,13 @@
         controller: 'PerfilRegraController',
         controllerAs: 'vm'
     })
-    
+
+    .state('relatorio', {
+        url: '/relatorio',
+        templateUrl: 'app/modules/relatorio/relatorio.html',
+        controller: 'RelatorioController',
+        controllerAs: 'vm'
+    })
     ;
 
     $urlRouterProvider.otherwise('/');
