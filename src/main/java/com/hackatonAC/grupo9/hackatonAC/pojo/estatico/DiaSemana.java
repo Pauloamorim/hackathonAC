@@ -12,6 +12,15 @@ public enum DiaSemana {
 	TODOS("Todos");
 
 
+	public static DiaSemana obterDiaSemanaPorOrdinal(Integer ordinal){
+		for (final DiaSemana ds : DiaSemana.values()) {
+			if(ds.ordinal() == ordinal){
+				return ds;
+			}
+		}
+		return null;
+	}
+
 	public String getDescricao() {
 		return descricao;
 	}
