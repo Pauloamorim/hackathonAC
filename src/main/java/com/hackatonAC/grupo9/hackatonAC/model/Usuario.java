@@ -19,7 +19,15 @@ public class Usuario {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="idusuario")
-	private Long idUsuario;
+	private Long id;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 
 	@Column(name="nome")
 	private String nome;
@@ -37,14 +45,6 @@ public class Usuario {
 	@JoinColumn(name="perfil_idperfil")
 	private Perfil perfil;
 
-
-	public Long getIdUsuario() {
-		return idUsuario;
-	}
-
-	public void setIdUsuario(Long idUsuario) {
-		this.idUsuario = idUsuario;
-	}
 
 	public String getNome() {
 		return nome;

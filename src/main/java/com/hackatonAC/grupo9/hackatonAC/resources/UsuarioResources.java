@@ -24,7 +24,7 @@ public class UsuarioResources {
 
 		final Usuario usuarioConsultado = usuarioService.obterUsuarioLogin(usuario.getLogin(), usuario.getSenha());
 		if(usuarioConsultado != null){
-			return ResponseEntity.status(HttpStatus.OK).build();
+			return ResponseEntity.status(HttpStatus.OK).body(usuarioConsultado);
 		}else{
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 		}
