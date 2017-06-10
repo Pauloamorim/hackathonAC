@@ -8,26 +8,27 @@
 
         .service('PontoService', PontoService)
 
-        .service('LolizacaoService', LolizacaoService)
+        .service('BuscarRegrasService', BuscarRegrasService)
+
+        .service('RegraService', RegraService)
 
     ;
 
     function LoginService($resource, BASE_REST_URL) {
-        return $resource(BASE_REST_URL + '/usuario/login', {}, {});
+        return $resource(BASE_REST_URL + 'usuario/login', {}, {});
     }
 
     function PontoService($resource, BASE_REST_URL) {
-        return $resource(BASE_REST_URL + '/usuario/apontar', {}, {});
+        return $resource(BASE_REST_URL + 'ponto/registrar', {}, {});
     }
 
-    function LolizacaoService($resource) {
-        return $resource('https://geoip-db.com/json', {}, {
-            get: {
-                method: 'GET',
-                headers: {'Access-Control-Allow-Origin': '*'}
-            }
-
-        });
+    function BuscarRegrasService($resource, BASE_REST_URL) {
+        return $resource(BASE_REST_URL + 'regras', {}, {});
     }
+
+    function RegraService($resource, BASE_REST_URL) {
+        return $resource(BASE_REST_URL + 'regras', {}, {});
+    }
+
 
 })();

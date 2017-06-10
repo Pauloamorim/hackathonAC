@@ -5,7 +5,7 @@
     .module('hackathonACApp')
     .controller('PontoController', PontoController);
 
-  function PontoController($q, $scope) {
+  function PontoController($q, $scope, PontoService, ToastFactory) {
     var vm = this;
     
     vm.apontar = apontar;
@@ -23,6 +23,7 @@
           vm.promise = deferred.promise;
           navigator.geolocation.getCurrentPosition(successFunction, errorFunction);
       }
+
 
     }
 
@@ -50,7 +51,7 @@
             //city data
             //alert(city.short_name + " " + city.long_name)
 
-            vm.ponto.city = city.short_name;
+            vm.ponto.localidade = {nome: city.short_name};
 
           } else {
             alert("No results found");
@@ -61,6 +62,7 @@
 
         vm.promise = deferred.resolve();
         $scope.$apply();
+        salvar();
       });
 
       return deferred.promise;
@@ -75,6 +77,17 @@
 
     function errorFunction(){
       alert("Geocoder failed");
+    }
+
+    function salvar(){
+      vm.ponto.data = moment(new Date()).format("DD-MM-YYYY HH:mm");
+      vm.ponto.usuario = {id: 1};
+
+      vm.promise = PontoService.save(vm.ponto, function(){
+        ToastFactory.showSuccessToast("Ponto registrado com sucesso!");
+      }, function(){
+        ToastFactory.showErrorToast("ERRO INESPERADO!");
+      })
     }
 
   }

@@ -10,16 +10,11 @@ import javax.persistence.Table;
 @Entity
 @Table(name="perfil_regra")
 public class PerfilRegra {
-
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="perfil_idperfil")
-	private Perfil perfil;
-
-
-
-	@Column(name="nome")
-	private String nome;
+	@Column(name="id_perfil_regra")
+	private Long id;
 
 
 

@@ -10,12 +10,12 @@
     var vm = this;
 
     vm.diasSemanas = [{nome: "Segunda", value: "SEGUNDA"},
-      {nome: "Terça-Feira", value: "TERCA"},
+      {nome: "Terca-Feira", value: "TERCA"},
       {nome: "Quarta-Feira", value: "QUARTA"},
       {nome: "Quinta-Feira", value: "QUINTA"},
       {nome: "Sexta-Feira", value: "SEXTA"},
-      {nome: "Sábado-Feira", value: "SABADO"},
-      {nome: "Domingo-Feira", value: "DOMINGO"},
+      {nome: "Sabado", value: "SABADO"},
+      {nome: "Domingo", value: "DOMINGO"},
       {nome: "Todos", value: "TODOS"}]
 
 
