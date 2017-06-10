@@ -21,6 +21,8 @@
 	</md-select>
 </md-input-container>
 
+<md-button class="md-raised md-primary" ng-click="vm.pesquisar()" a>Pesquisar</md-button>
+
 <md-content ng-hide="vm.promise && !vm.promise.$resolved">
 
 	<p class="md-headline">Relatorio</p>
@@ -34,7 +36,7 @@
 				<th class="md-title">Ponto 2</th>
 				<th class="md-title">Ponto 3</th>
 				<th class="md-title">Ponto 4</th>
-				<th class="md-title">Ponto 5</th>
+				<th class="md-title">Valor</th>
 			</tr>
 		</thead>
 

@@ -7,6 +7,7 @@
 
   function RelatorioController(RelatorioService, UsuarioService, ToastFactory) {
     var vm = this;
+    vm.pesquisar = pesquisar;
 
     vm.meses = [
       {description: 'Janeiro', value: 1},
@@ -28,6 +29,10 @@
     }, function(){
       ToastFactory.showErrorToast("ERRO INESPERADO!");
     })
+
+    function pesquisar(){
+      
+    }
     
 
   }
